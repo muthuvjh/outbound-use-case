@@ -1,0 +1,93 @@
+<h5 class="card-title">Export Data</h5>
+<br>
+<form [formGroup]="export_form" (ngSubmit)="submit()">
+<div class="row">
+    
+
+    <div class="col-md-5 row">
+      <div class="col-md-12"><label for="name" class= "form-label">Campaign: </label></div>
+      <div class="col-md-12">
+        <select formControlName="campaign" [ngClass]="{'is-invalid' :submitted&&export_form.controls['campaign'].errors}" class="form-select" id="inputGroupSelect02">
+        <option selected>Select..</option>
+        <option *ngFor="let item of list_data" [value]="item">{{ item }}</option>
+      </select>
+      </div>
+      
+      
+    </div>
+    <div class="col-md-5 row">
+      <div class="col-md-12"><label for="name" class= "form-label">Date: </label></div>
+      <div class="col-md-12"><input type="date"  formControlName="campaign_date" [ngClass]="{'is-invalid' :submitted&&export_form.controls['campaign_date'].errors}" class="form-control"></div>
+      
+      
+    
+    
+  </div>
+  <div class="col-md-1 row">
+    <div class="col-md-12"><br></div>
+      <div class="col-md-12"> <button type="submit" style="margin-top: 6px;" class="btn btn-primary">Submit</button></div>
+   
+    
+    
+  
+  
+</div>
+<div class="col-md-1 "><div class="col-md-12"><br></div><button type="button" (click)="exportdata()" style="border: none;"><i class='fas fa-file-excel' style='font-size:48px;color:  rgb(115 134 213);'></i></button></div>
+
+</div>
+<br>
+
+    
+      
+    
+      
+        
+            
+        
+        
+        
+    
+    
+        
+     
+    
+
+</form>
+<div class="row">
+  <div class="col-md-3">
+    
+    
+   
+ 
+  
+</div>
+</div>
+<br>
+  <div class="row">
+    <div class="col-md-12">
+    <table class="col-md-6 table table-bordered">
+      <thead>
+        <tr>
+          
+          <th scope="col" class="col-md-3">Agent</th>
+          <th scope="col" class="col-md-3">Total</th>
+          
+          
+          
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let item of table_list_data; let i =index">
+          <th class="col-md-3"scope="row">{{item.agent_id
+          }}</th>
+          <td class="col-md-3">{{item.total}}</td>
+          
+          
+          
+          
+        </tr>
+       
+      </tbody>
+    </table>
+  </div>
+  </div>

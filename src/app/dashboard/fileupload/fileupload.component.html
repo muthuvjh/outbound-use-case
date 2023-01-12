@@ -1,0 +1,40 @@
+<h5 class="card-title">File Upload</h5>
+<br>
+<form [formGroup]="file_form" (ngSubmit)="submit()">
+<div class="row">
+    
+
+    <div class="col-md-5">
+        <label for="name" class= "form-label">Agent: </label>
+         <select formControlName="agent_id" class="form-select" [ngClass]="{'is-invalid' :submitted&&file_form.controls['agent_id'].errors}" id="inputGroupSelect02">
+        <option selected>Select..</option>
+        <option *ngFor="let item of list_data" [value]="item.agent_id">{{ item.name }}-{{ item.agent_id }}</option>
+      </select>
+    </div>
+      
+
+      <div class="col-md-5">
+        <label for="name" class= "form-label">File</label>
+        <div class="input-group mb-3">
+            <input type="file"  formControlName="file" class="form-control" id="inputGroupFile02" (change)="onFileChange($event)">
+            <!-- <div *ngIf="f.file.touched && f.file.invalid" class="alert alert-danger">
+                   <div *ngIf="f.file.errors">File is required.</div>
+            </div>
+   -->
+            <button type="submit" class="btn btn-primary">Upload</button>
+            
+        </div>
+        
+        
+    </div>
+    
+        
+     
+    
+  </div>
+</form>
+  <div class="row g-3 col-md-3">
+    
+    
+    
+  </div>

@@ -1,0 +1,73 @@
+<h5 class="card-title">Agent Create</h5>
+<br>
+<form class="row g-3" [formGroup]="agent_form" (ngSubmit)="submit()">
+    
+        <div class="col-md-6">
+          <label for="name" class="form-label">Name</label>
+          <input type="text" autocomplete="off" formControlName="name" [ngClass]="{'is-invalid' :submitted&&agent_form.controls['name'].errors}" class="form-control" id="name">
+          <div *ngIf="f.name.touched && f.name.invalid"  class="invalid-feedback">
+            Please choose a username.
+          </div>
+        </div>
+        <div class="col-md-6">
+          <label for="inputPassword4" class="form-label">Agent Id</label>
+          <input type="text" formControlName="agent_id" readonly class="form-control" id="inputPassword4">
+        </div>
+        <div class="col-md-6">
+          <label for="inputAddress" class="form-label">Email</label>
+          <input type="text" autocomplete="off"  [ngClass]="{'is-invalid' :submitted&&agent_form.controls['email'].errors}"  formControlName="email" class="form-control" id="inputAddress" placeholder="1234 Main St">
+        </div>
+        <div class="col-md-6">
+            <label for="inputCity" class="form-label">phone</label>
+            <input type="text" formControlName="phone" autocomplete="off" [ngClass]="{'is-invalid' :submitted&&agent_form.controls['phone'].errors}" class="form-control" id="inputCity">
+          </div>
+        <div class="col-12">
+          <label for="inputAddress2" class="form-label">Address</label>
+          <input type="text" formControlName="address" class="form-control" [ngClass]="{'is-invalid' :submitted&&agent_form.controls['address'].errors}" id="inputAddress2" placeholder="Apartment, studio, or floor">
+        </div>
+        
+        <!-- <div class="col-md-4">
+          <label for="inputState" class="form-label">State</label>
+          <select id="inputState" class="form-select">
+            <option selected>Choose...</option>
+            <option>...</option>
+          </select>
+        </div> -->
+        
+        <div class="col-12">
+          <button type="submit" class="btn btn-primary">Sign in</button>
+        </div>
+      
+    
+    <!-- <div class="form-group">
+        <label for="name">Name</label>
+        <input 
+            formControlName="name"
+            id="name" 
+            type="text" 
+            class="form-control">
+        <div *ngIf="f.name.touched && f.name.invalid" class="alert alert-danger">
+            <div *ngIf="f.name.errors && f.name.errors.required">Name is required.</div>
+            <div *ngIf="f.name.errors && f.name.errors.minlength">Name should be 3 character.</div>
+        </div>
+    </div> -->
+    
+  
+   
+    <!-- <div class="form-group">
+        <label for="email">Email</label>
+        <input 
+            formControlName="email"
+            id="email" 
+            type="text" 
+            class="form-control">
+        <div *ngIf="f.email.touched && f.email.invalid" class="alert alert-danger">
+            <div *ngIf="f.email.errors && f.email.errors.required">Email is required.</div>
+            <div *ngIf="f.email.errors && f.email.errors.email">Please, enter valid email address.</div>
+        </div>
+    </div> -->
+   
+    
+  
+    
+</form>
